@@ -15,8 +15,8 @@ class $modify(CreatorLayer) {
 		if(!CreatorLayer::init())
 			return false;
 		CCMenu* m_creatorButtonsMenu = static_cast<CCMenu*>(this->getChildByID("creator-buttons-menu"));
-		as<CCNode*>(m_creatorButtonsMenu->getChildByID("versus-button"))->setVisible(false);
-		as<CCNode*>(m_creatorButtonsMenu->getChildByID("map-button"))->setVisible(false);
+		static_cast<CCNode*>(m_creatorButtonsMenu->getChildByID("versus-button"))->setVisible(false);
+		static_cast<CCNode*>(m_creatorButtonsMenu->getChildByID("map-button"))->setVisible(false);
 
 		auto gddpBtn = static_cast<CCMenuItemSpriteExtra*>(m_creatorButtonsMenu->getChildByID("demon-progression-button"));
 
