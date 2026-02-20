@@ -1,4 +1,6 @@
 # Goodbye Unnecessary Buttons Changelog
+## v1.1.3
+- 2.2081 support
 ## v1.1.2
 - Fix scaling issue
 ## v1.1.1
