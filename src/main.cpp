@@ -14,11 +14,11 @@ class $modify(CreatorLayer) {
 	bool init() {
 		if(!CreatorLayer::init())
 			return false;
-		CCMenu* m_creatorButtonsMenu = as<CCMenu*>(this->getChildByID("creator-buttons-menu"));
+		CCMenu* m_creatorButtonsMenu = static_cast<CCMenu*>(this->getChildByID("creator-buttons-menu"));
 		as<CCNode*>(m_creatorButtonsMenu->getChildByID("versus-button"))->setVisible(false);
 		as<CCNode*>(m_creatorButtonsMenu->getChildByID("map-button"))->setVisible(false);
 
-		auto gddpBtn = as<CCMenuItemSpriteExtra*>(m_creatorButtonsMenu->getChildByID("demon-progression-button"));
+		auto gddpBtn = static_cast<CCMenuItemSpriteExtra*>(m_creatorButtonsMenu->getChildByID("demon-progression-button"));
 
 		bool gddpThere = Loader::get()->isModLoaded("minemaker0430.gddp_integration") && gddpBtn;
 
@@ -27,7 +27,7 @@ class $modify(CreatorLayer) {
 		}
 
 		for(int i = 0; i < m_creatorButtonsMenu->getChildrenCount(); i++) {
-			auto node = as<CCMenuItemSpriteExtra*>(m_creatorButtonsMenu->getChildren()->objectAtIndex(i));
+			auto node = static_cast<CCMenuItemSpriteExtra*>(m_creatorButtonsMenu->getChildren()->objectAtIndex(i));
 			auto sprite = node->getNormalImage();
 			auto nodeID = node->getID();
 			
@@ -63,7 +63,7 @@ class $modify(CreatorLayer) {
 				node->setZOrder(14 + gddpThere);
 		}
 
-		AxisLayout* menuLayout = as<AxisLayout*>(m_creatorButtonsMenu->getLayout());
+		AxisLayout* menuLayout = static_cast<AxisLayout*>(m_creatorButtonsMenu->getLayout());
 		menuLayout->setGap(8);
 		menuLayout->ignoreInvisibleChildren(true);
 		menuLayout->setAutoScale(false);
